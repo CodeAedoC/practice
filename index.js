@@ -1,8 +1,9 @@
+require('dotenv').config();
+
 const http = require('http');
 const express = require('express');
 const path = require('path');
 const { Server } = require('socket.io');
-const port = 3000;
 
 const app = express();
 const server = http.createServer(app);
@@ -20,6 +21,6 @@ app.get('/', (req, res) => {
     return res.sendFile('/public/index.html');
 })
 
-server.listen(port, () => {
-    console.log(`Server Started at port ${port}`);
+server.listen(process.env.PORT,  () => {
+    console.log(`Server Started at port ${process.env.PORT}`);
 })
